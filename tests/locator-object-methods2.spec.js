@@ -1,9 +1,8 @@
 import { test } from "@playwright/test";
 
 test.describe("Test Group", () => {
-  
   test.beforeEach(async ({ page }) => {
-    await page.goto("https://practice.cydeo.com/");
+    await page.goto("https://the-internet-5chk.onrender.com");
   });
 
   test("innerText(): retrives the visible text", async ({ page }) => {
@@ -12,11 +11,11 @@ test.describe("Test Group", () => {
     let actualText = await headerElement.innerText();
 
     console.log(actualText);
-
   });
 
-  test("inputValue(): only works with <input>, <textarea>, <select>, retrives the input value", async ({ page }) => {
-   
+  test("inputValue(): only works with <input>, <textarea>, <select>, retrives the input value", async ({
+    page,
+  }) => {
     let inputsLink = page.getByText("Inputs");
     await inputsLink.click();
 
@@ -31,18 +30,13 @@ test.describe("Test Group", () => {
     let actualInput = await inputBox.inputValue();
 
     console.log(actualInput);
-
-
   });
 
   test("getAttribute(): retrieves the attribute value", async ({ page }) => {
-    
-    let abTestingLink = page.locator("text='A/B Testing'"); 
+    let abTestingLink = page.locator("text='A/B Testing'");
 
-     let hrefLink = await abTestingLink.getAttribute("href");
+    let hrefLink = await abTestingLink.getAttribute("href");
 
-     console.log(hrefLink);
-
+    console.log(hrefLink);
   });
-
 });
